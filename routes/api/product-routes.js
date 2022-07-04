@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
       res.status(404).json({ message: 'No product with this id!' });
       return;
     }
-    res.status(200).json(userData);
+    res.status(200).json(product);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -40,6 +40,22 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
+    try {
+      const newProduct = await Product.create({
+        product_name: req.body.product_name,
+        price: req.body.price,
+        stock: req.body.stock,
+        tag_ids: req.body.tag_ids
+      });
+      // 200 status code means the request is successful
+      res.status(200).json(newProduct);
+    } catch (err) {
+      // 400 status code means the server could not understand the request
+      res.status(400).json(err);
+    }
+  });
+
+
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
