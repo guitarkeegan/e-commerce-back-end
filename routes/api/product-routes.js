@@ -132,11 +132,12 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({ message: 'No product found with that id!' });
       return;
     }
+    res.json(deletedProduct);
   }
   catch (err) {
     res.status(400).json({message: "Error with deleting the product"});
   }
-  res.json(deletedProduct);
+  
 });
 
 
