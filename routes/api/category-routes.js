@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bodyParser = require('body-parser');
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
@@ -38,6 +39,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
+  try {
+    const userData = await Category.create({categoryName: req.body.categoryName});
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.put('/:id', (req, res) => {
