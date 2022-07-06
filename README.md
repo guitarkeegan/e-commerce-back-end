@@ -1,4 +1,4 @@
-# Ecommerce-Backend  ![ISC](https://img.shields.io/badge/license-ISC-red)
+# Ecommerce-Backend  ![ISC](https://img.shields.io/badge/license-MIT-red)
 
   - [Description](#description)
   - [Installation](#installation)
