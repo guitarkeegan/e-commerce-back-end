@@ -1,5 +1,5 @@
 const { Tag } = require('../models');
-
+// seed tag data
 const tagData = [
   {
     tag_name: 'rock music',

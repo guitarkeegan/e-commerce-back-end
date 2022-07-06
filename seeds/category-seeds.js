@@ -1,5 +1,5 @@
 const { Category } = require('../models');
-
+// category seed data
 const categoryData = [
   {
     category_name: 'Shirts',
